@@ -1,215 +1,147 @@
-"use client";
+'use client' ;
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
-import {
-  Mail,
-  User,
-  BookOpen,
-  VideoIcon,
-  DollarSign,
-  ArrowRight,
-} from "lucide-react";
-import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ArrowRight, Check, Info, FileText, Users, Calendar } from "lucide-react";
+import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-light-orange-50">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl">
-                    Revolutionize Your Learning Experience
-                  </h1>
-                  <p className="max-w-xl md:text-xl">
-                    Our platform brings tutors and students together for an
-                    interactive and immersive educational journey.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <Button className="bg-white text-blue-600 hover:bg-gray-200">
-                    Get Started
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="text-white border-white hover:bg-white hover:text-blue-600"
-                  >
-                    Learn More
-                  </Button>
-                </div>
+        <section className="w-full py-16">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <div className="flex flex-col space-y-6">
+              <h1 className="text-4xl font-extrabold text-black sm:text-5xl">Welcome to the Ultimate Blogging Platform</h1>
+              <p className="text-lg text-gray-700 max-w-lg">
+                Share your thoughts, explore new perspectives, and connect with bloggers worldwide.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Button className="bg-orange-500 text-white px-6 py-3">Start Blogging</Button>
+                <Button className="bg-white border border-orange-500 text-orange-500 px-6 py-3 hover:bg-orange-100">Explore Blogs</Button>
               </div>
-              <Image
-                src="https://picsum.photos/seed/picsum/200/300"
-                alt="Learning"
-                width={400}
-                height={600}
-                className="mx-auto w-full rounded-xl lg:order-last"
-              />
             </div>
+            <img
+              src="https://fastly.picsum.photos/id/13/2500/1667.jpg?hmac=SoX9UoHhN8HyklRA4A3vcCWJMVtiBXUg0W4ljWTor7s"
+              alt="Blogging"
+              className="w-full max-w-md mt-12 md:mt-0 md:ml-8 rounded-lg shadow-lg"
+            />
           </div>
         </section>
-
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Core Features
-              </h2>
-              <p className="max-w-xl md:text-lg">
-                Explore the powerful features designed to enhance the
-                educational experience for both tutors and students.
+        <section className="w-full py-16 bg-light-orange-100">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-black">Why Choose Us?</h2>
+              <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
+                Experience simplicity and elegance in blogging with features designed for creators.
               </p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 py-12">
-              <Card>
-                <CardHeader>
-                  <User className="h-12 w-12 mx-auto text-blue-600" />
-                  <CardTitle>User Authentication</CardTitle>
-                  <CardDescription>
-                    Email and Password Login/Signup
-                  </CardDescription>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="flex flex-col items-center p-6 bg-white shadow-lg">
+                <FileText className="h-12 w-12 text-orange-500" />
+                <CardHeader className="text-center mt-4">
+                  <CardTitle className="text-xl font-semibold">Easy to Use</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>
-                    Secure accounts for students and tutors with essential login
-                    and signup capabilities.
-                  </p>
+                <CardContent className="text-gray-600 text-center">
+                  Create and publish your blogs effortlessly with our intuitive interface.
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <BookOpen className="h-12 w-12 mx-auto text-blue-600" />
-                  <CardTitle>Course Management</CardTitle>
-                  <CardDescription>Create and View Courses</CardDescription>
+              <Card className="flex flex-col items-center p-6 bg-white shadow-lg">
+                <Users className="h-12 w-12 text-orange-500" />
+                <CardHeader className="text-center mt-4">
+                  <CardTitle className="text-xl font-semibold">Connect with Readers</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>
-                    Tutors can create and manage their courses with flexible
-                    scheduling and detailed descriptions.
-                  </p>
+                <CardContent className="text-gray-600 text-center">
+                  Engage with a community of readers and receive feedback.
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <VideoIcon className="h-12 w-12 mx-auto text-blue-600" />
-                  <CardTitle>Zoom Link Access</CardTitle>
-                  <CardDescription>Controlled Access</CardDescription>
+              <Card className="flex flex-col items-center p-6 bg-white shadow-lg">
+                <Calendar className="h-12 w-12 text-orange-500" />
+                <CardHeader className="text-center mt-4">
+                  <CardTitle className="text-xl font-semibold">Regular Updates</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p>
-                    Secure Zoom access ensures only enrolled students can join
-                    the class sessions.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <DollarSign className="h-12 w-12 mx-auto text-blue-600" />
-                  <CardTitle>Payment Processing</CardTitle>
-                  <CardDescription>Secure Transactions</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Integrated payment solutions ensure seamless and secure
-                    transactions for course enrollments.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <User className="h-12 w-12 mx-auto text-blue-600" />
-                  <CardTitle>Student Dashboard</CardTitle>
-                  <CardDescription>Enrolled Courses Overview</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    A personalized dashboard for students to monitor and access
-                    their enrolled courses easily.
-                  </p>
+                <CardContent className="text-gray-600 text-center">
+                  Stay updated with our regular feature enhancements and improvements.
                 </CardContent>
               </Card>
             </div>
           </div>
         </section>
-
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Frequently Asked Questions
-              </h2>
-              <p className="max-w-xl md:text-lg">
-                Find answers to common questions and learn more about our
-                platform’s capabilities.
+        <section className="w-full py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-black">What Our Users Say</h2>
+              <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
+                Discover how our platform has transformed the blogging experience for our users.
               </p>
             </div>
-            <div className="mx-auto max-w-3xl py-12">
-              <Accordion type="single" collapsible>
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>
-                    How do I sign up as a tutor?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Tutors can sign up using their email and password and start
-                    creating courses immediately.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>
-                    How can students enroll in courses?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Students can browse available courses and enroll by
-                    proceeding to the payment page.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>
-                    What payment methods are supported?
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    We support various payment methods to ensure a smooth
-                    enrollment experience for all users.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Join Us Today
-              </h2>
-              <p className="max-w-xl md:text-lg">
-                Begin your journey with our innovative learning management
-                platform. Sign up now and explore endless learning
-                possibilities!
-              </p>
-              <Button className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 text-lg">
-                Sign Up Now
-              </Button>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="flex items-start p-6 bg-white shadow-lg">
+                <Avatar className="flex-none">
+                  <AvatarImage src="https://picsum.photos/seed/picsum/200/300" />
+                  <AvatarFallback>JD</AvatarFallback>
+                </Avatar>
+                <div className="ml-4">
+                  <p className="text-sm font-medium text-black">Jane Doe</p>
+                  <p className="text-xs text-gray-500 mb-2">Content Creator</p>
+                  <p className="text-gray-600">
+                    "This platform has made sharing my thoughts so much easier, and connecting with my readers has never been better!"
+                  </p>
+                </div>
+              </Card>
+              <Card className="flex items-start p-6 bg-white shadow-lg">
+                <Avatar className="flex-none">
+                  <AvatarImage src="https://picsum.photos/seed/picsum/200/300" />
+                  <AvatarFallback>SM</AvatarFallback>
+                </Avatar>
+                <div className="ml-4">
+                  <p className="text-sm font-medium text-black">Sam Miller</p>
+                  <p className="text-xs text-gray-500 mb-2">Blogger</p>
+                  <p className="text-gray-600">
+                    "The simplicity of the interface and the community engagement are the best features for me."
+                  </p>
+                </div>
+              </Card>
+              <Card className="flex items-start p-6 bg-white shadow-lg">
+                <Avatar className="flex-none">
+                  <AvatarImage src="https://picsum.photos/seed/picsum/200/300" />
+                  <AvatarFallback>MJ</AvatarFallback>
+                </Avatar>
+                <div className="ml-4">
+                  <p className="text-sm font-medium text-black">Mark Johnson</p>
+                  <p className="text-xs text-gray-500 mb-2">Writer</p>
+                  <p className="text-gray-600">
+                    "Excellent platform for writers! The updates keep getting better."
+                  </p>
+                </div>
+              </Card>
             </div>
           </div>
         </section>
       </main>
+      <footer className="bg-orange-500 text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-sm">© 2023 Blogging Platform. All rights reserved.</p>
+            <div className="flex space-x-4">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger className="hover:text-orange-300">
+                    <Info className="h-6 w-6" />
+                  </TooltipTrigger>
+                  <TooltipContent>About Us</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger className="hover:text-orange-300">
+                    <ArrowRight className="h-6 w-6" />
+                  </TooltipTrigger>
+                  <TooltipContent>Contact</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
